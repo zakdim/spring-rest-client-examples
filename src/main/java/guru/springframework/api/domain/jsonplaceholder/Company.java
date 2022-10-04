@@ -1,10 +1,9 @@
 
-package guru.springframework.api.domain.user;
+package guru.springframework.api.domain.jsonplaceholder;
 
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-import javax.annotation.Generated;
 
 public class Company implements Serializable {
 

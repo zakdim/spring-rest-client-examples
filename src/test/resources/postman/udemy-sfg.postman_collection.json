@@ -1,0 +1,44 @@
+{
+	"info": {
+		"_postman_id": "6e66b7fb-1f43-4523-98b0-b013eed15a38",
+		"name": "udemy-sfg",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1665682"
+	},
+	"item": [
+		{
+			"name": "s23-restful-web-services",
+			"item": [
+				{
+					"name": "try-api-users",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/users",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
