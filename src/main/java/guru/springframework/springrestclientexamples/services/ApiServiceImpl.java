@@ -1,8 +1,10 @@
 package guru.springframework.springrestclientexamples.services;
 
 import guru.springframework.api.domain.jsonplaceholder.User;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.Arrays;
 import java.util.List;
@@ -15,8 +17,11 @@ public class ApiServiceImpl implements ApiService {
 
     private RestTemplate restTemplate;
 
-    public ApiServiceImpl(RestTemplate restTemplate) {
+    private final String apiUrl;
+
+    public ApiServiceImpl(RestTemplate restTemplate, @Value("${api.url}") String apiUrl) {
         this.restTemplate = restTemplate;
+        this.apiUrl = apiUrl;
     }
 
 //    @Override
@@ -33,7 +38,12 @@ public class ApiServiceImpl implements ApiService {
      */
     @Override
     public List<User> getUsers(Integer limit /* ignore */) {
-        User[] userData = restTemplate.getForObject("https://jsonplaceholder.typicode.com/users", User[].class);
+
+        UriComponentsBuilder uriBuilder = UriComponentsBuilder
+                .fromUriString(apiUrl)
+                .queryParam("limit", limit);
+
+        User[] userData = restTemplate.getForObject(uriBuilder.toUriString(), User[].class);
 
         return Arrays.asList(userData);
     }
