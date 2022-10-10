@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface ApiService {
 
-//    List<User> getUsers(Integer limit);
-    List<User> getUsers();
+    List<User> getUsers(Integer limit);
+//    List<User> getUsers();
 }

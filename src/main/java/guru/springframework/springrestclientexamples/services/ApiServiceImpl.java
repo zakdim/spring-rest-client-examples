@@ -26,8 +26,13 @@ public class ApiServiceImpl implements ApiService {
 //        return userData.getData();
 //    }
 
+    /**
+     * Limit parameter is ignore. Test endpoint for users always returns 10 entries
+     * @param limit
+     * @return
+     */
     @Override
-    public List<User> getUsers() {
+    public List<User> getUsers(Integer limit /* ignore */) {
         User[] userData = restTemplate.getForObject("https://jsonplaceholder.typicode.com/users", User[].class);
 
         return Arrays.asList(userData);

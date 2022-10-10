@@ -29,7 +29,7 @@ public class ApiServiceImplTest {
     @Test
     public void getUsers() {
 
-        List<User> users = apiService.getUsers();
+        List<User> users = apiService.getUsers(10); // limit is ignore, test service always returns 10 objects
 
         assertEquals(10, users.size());
     }

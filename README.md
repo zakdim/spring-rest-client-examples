@@ -8,6 +8,6 @@ An example application for `Section 23: Introduction to RESTFul Web Services` of
 ### Lecture 366: Assignment Review - Create Data Model
 
 The examaple API endpoint demonstrated in this section ([apifaketory](https://apifaketory.docs.apiary.io/#reference/users/users-collection)) 
-doesn't seem to work from Postman, only on the site directly. Instead, I used an example API endpoint : https://jsonplaceholder.typicode.com/users
+doesn't seem to work. Instead, I used an example API endpoint : https://jsonplaceholder.typicode.com/users
 
 To convert json to Java Pojo see: [https://jsonplaceholder.typicode.com](https://www.jsonschema2pojo.org/)
