@@ -11,3 +11,7 @@ The examaple API endpoint demonstrated in this section ([apifaketory](https://ap
 doesn't seem to work. Instead, I used an example API endpoint : https://jsonplaceholder.typicode.com/users
 
 To convert json to Java Pojo see: [https://jsonplaceholder.typicode.com](https://www.jsonschema2pojo.org/)
+
+### Lecture 370: Rest Template Example
+
+* [Fruit Shop API Example](https://api.predic8.de/shop/docs)
