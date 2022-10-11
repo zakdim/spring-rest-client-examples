@@ -8,6 +8,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.server.ServerWebExchange;
+import reactor.core.publisher.Mono;
 
 /**
  * Create by dmitri on 2022-10-03.
@@ -30,20 +31,25 @@ public class UserController {
     @PostMapping("/users")
     public String formPost(Model model, ServerWebExchange serverWebExchange) {
 
-//        MultiValueMap<String, String> map = serverWebExchange.getFormData().block();
+//        MultiValueMap<String, String> map = serverWebExchange.getFormData().block(); // .subscribe() instead of .block()
 
 //        Integer limit = Integer.valueOf(map.get("limit").get(0));
         Integer limit = 10;
+//
+//        log.debug("Received Limit value: " + limit);
+//        //default if null or zero
+//        if (limit == null || limit == 0) {
+//            log.debug("Setting limit to default of 10");
+//            limit = 10;
+//        }
 
-        log.debug("Received Limit value: " + limit);
-        //default if null or zero
-        if (limit == null || limit == 0) {
-            log.debug("Setting limit to default of 10");
-            limit = 10;
-        }
-
-        model.addAttribute("users", apiService.getUsers(limit));
-
+//        model.addAttribute("users", apiService.getUsers(limit));
+        model.addAttribute("users",
+                apiService
+                        .getUsers(Mono.just(limit)));
+//                        .getUsers(serverWebExchange
+//                                .getFormData()
+//                                .map(data -> Integer.valueOf(data.getFirst("limit")))));
         return "userlist";
     }
 }
